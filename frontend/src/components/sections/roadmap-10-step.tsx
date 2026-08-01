@@ -75,9 +75,14 @@ export function Roadmap10StepSection() {
         </motion.div>
 
         {/* CTA Button using Terracotta design token */}
-        <div className="text-center pt-4">
-          <Link href="/practices/capital-market">
-            <Button variant="terracotta" size="lg" rightIcon={<ArrowRight className="h-4 w-4" />}>
+        <div className="text-center pt-4 flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
+          <Link href="/practices/capital-market" className="w-full sm:w-auto">
+            <Button
+              variant="terracotta"
+              size="lg"
+              className="w-full sm:w-auto px-6 sm:px-8 text-xs sm:text-base font-bold h-auto py-3.5 leading-snug whitespace-normal text-center inline-flex items-center justify-center gap-2"
+              rightIcon={<ArrowRight className="h-4 w-4 shrink-0" />}
+            >
               Explore Full Capital Market Licensing Guide
             </Button>
           </Link>

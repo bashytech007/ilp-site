@@ -108,7 +108,7 @@ export default function InsightsPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {corporateGuides.map((guide) => (
                 <div key={guide.title} className="bg-white p-6 rounded-xl border border-beige-300 shadow-sm space-y-3">
                   <div className="flex items-center justify-between">
@@ -133,7 +133,7 @@ export default function InsightsPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {propertyGuides.map((guide) => (
                 <div key={guide.title} className="bg-white p-6 rounded-xl border border-beige-300 shadow-sm space-y-3">
                   <div className="flex items-center justify-between">

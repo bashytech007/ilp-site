@@ -24,8 +24,8 @@ export function HeroSection() {
           >
             {/* Eyebrow */}
             <motion.div variants={fadeInUp} className="flex items-center gap-2">
-              <span className="h-0.5 w-8 bg-terracotta-500" />
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
+              <span className="h-0.5 w-6 sm:w-8 bg-terracotta-500 shrink-0" />
+              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] sm:tracking-[0.2em] text-terracotta-500">
                 Corporate & Commercial Law Firm • Lagos, Nigeria
               </span>
             </motion.div>
@@ -33,7 +33,7 @@ export function HeroSection() {
             {/* Primary Display Serif Headline with Inline Accent */}
             <motion.h1
               variants={fadeInUp}
-              className="font-serif text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.14] text-charcoal-900 font-normal"
+              className="font-serif text-[2.25rem] sm:text-5xl lg:text-6xl tracking-tight leading-[1.15] text-charcoal-900 font-normal"
             >
               Your Trusted Legal Partner for{" "}
               <span className="text-terracotta-500 font-bold italic">

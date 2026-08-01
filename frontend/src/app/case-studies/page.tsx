@@ -71,7 +71,7 @@ export default function CaseStudiesPage() {
           </div>
 
           {/* 4 Case Studies Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {caseStudies.map((cs) => (
               <div
                 key={cs.id}

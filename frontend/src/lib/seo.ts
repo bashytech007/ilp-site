@@ -65,7 +65,7 @@ export function generateLegalServiceSchema() {
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo/ilp-logo.svg`,
+    logo: `${siteConfig.url}/images/logo/logo.png`,
     image: siteConfig.ogImage,
     address: {
       "@type": "PostalAddress",

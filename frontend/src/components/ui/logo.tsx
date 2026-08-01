@@ -1,8 +1,6 @@
 import * as React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import logoPrimary from "@/assets/logo-ilp.svg";
-import logoWhite from "@/assets/logo-ilp-white.svg";
 
 export interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "default" | "white" | "blue-white" | "icon-only";
@@ -11,7 +9,7 @@ export interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function Logo({
-  variant = "blue-white",
+  variant = "default",
   size = "md",
   className,
   ...props
@@ -24,20 +22,20 @@ export function Logo({
     xl: "h-16",
   };
 
-  const logoAsset = variant === "white" ? logoWhite : logoPrimary;
-
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-3 select-none group",
+        "inline-flex items-center gap-3 select-none group shrink-0",
         heightClasses[size],
         className
       )}
       {...props}
     >
       <Image
-        src={logoAsset}
+        src="/images/logo/logo.png"
         alt="I. Lawrence Practice Logo"
+        width={300}
+        height={100}
         className={cn(
           "w-auto object-contain transition-transform duration-300 group-hover:scale-105",
           heightClasses[size]
