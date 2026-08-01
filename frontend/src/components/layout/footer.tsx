@@ -85,10 +85,10 @@ export function Footer() {
             </div>
 
             {/* Flag Note for Pending Official Handles */}
-            <div className="flex items-start gap-1.5 text-[11px] text-amber-400/90 pt-1">
+            {/* <div className="flex items-start gap-1.5 text-[11px] text-amber-400/90 pt-1">
               <AlertCircle className="h-3.5 w-3.5 shrink-0 mt-0.5" />
               <span></span>
-            </div>
+            </div> */}
           </div>
 
           {/* Column 3 (Right): Legal Disclaimer */}

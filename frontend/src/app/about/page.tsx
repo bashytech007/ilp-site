@@ -88,7 +88,7 @@ export default function AboutPage() {
           </div>
 
           {/* Vision & Mission */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-charcoal-900 text-white p-8 rounded-xl space-y-3">
               <span className="text-xs font-bold tracking-[0.2em] text-terracotta-400 uppercase">OUR VISION</span>
               <h3 className="font-heading font-bold text-2xl text-white">To Be Nigeria's Most Trusted Commercial Counsel</h3>
@@ -113,7 +113,7 @@ export default function AboutPage() {
               <p className="text-xs text-slate-600">The institutional values that guide every client engagement and legal decision.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {values.map((v) => (
                 <div key={v.title} className="bg-white p-6 rounded-xl border border-beige-300 shadow-sm space-y-3">
                   <div className="w-10 h-10 rounded-full bg-beige-200 flex items-center justify-center">

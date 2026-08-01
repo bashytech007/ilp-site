@@ -32,7 +32,7 @@ export function PositioningBand() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-5 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
         >
           {siteConfig.lifecyclePillars.map((pillar, idx) => {
             const isActive = activeStep === idx;

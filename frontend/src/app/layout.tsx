@@ -40,9 +40,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${inter.variable} ${newsreader.variable} scroll-smooth`}
+      className={`${plusJakartaSans.variable} ${inter.variable} ${newsreader.variable} scroll-smooth overflow-x-hidden`}
     >
-      <body className="min-h-screen bg-white dark:bg-obsidian-950 text-slate-900 dark:text-white antialiased font-body selection:bg-primary-500 selection:text-white">
+      <body className="min-h-screen bg-white dark:bg-obsidian-950 text-slate-900 dark:text-white antialiased font-body selection:bg-primary-500 selection:text-white overflow-x-hidden">
         {/* Skip to Main Content Link for WCAG 2.2 AA Keyboard Compliance */}
         <a
           href="#main-content"

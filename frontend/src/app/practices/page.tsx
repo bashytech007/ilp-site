@@ -75,36 +75,36 @@ export default function PracticesIndexPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-linen-50 font-body antialiased">
+    <div className="min-h-screen flex flex-col bg-linen-50 font-body antialiased overflow-x-hidden">
       <HeaderNav />
 
-      <main id="main-content" className="flex-grow pt-32 pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <main id="main-content" className="flex-grow pt-32 pb-24 overflow-x-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16 max-w-full">
           
           {/* Header */}
           <div className="space-y-4 max-w-3xl">
             <div className="flex items-center gap-2">
-              <span className="h-0.5 w-8 bg-terracotta-500" />
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
+              <span className="h-0.5 w-6 sm:w-8 bg-terracotta-500 shrink-0" />
+              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-terracotta-500 break-words">
                 OUR PRACTICE AREAS
               </span>
             </div>
 
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-charcoal-900 leading-tight">
+            <h1 className="font-heading font-bold text-3xl sm:text-5xl text-charcoal-900 leading-tight break-words">
               Comprehensive Commercial & Corporate Legal Advisory
             </h1>
 
-            <p className="text-base text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed break-words">
               We combine deep legal engineering with practical commercial understanding to protect your business, enable growth, and guarantee regulatory compliance.
             </p>
           </div>
 
           {/* Practices Grid */}
-          <div className="grid grid-cols-1 gap-12">
+          <div className="grid grid-cols-1 gap-8 sm:gap-12">
             {practices.map((practice) => (
               <div
                 key={practice.slug}
-                className={`p-8 sm:p-10 rounded-2xl border transition-all ${
+                className={`p-5 sm:p-10 rounded-2xl border transition-all max-w-full overflow-hidden ${
                   practice.isFlagship
                     ? "bg-charcoal-900 text-white border-charcoal-800 shadow-xl"
                     : "bg-white text-charcoal-900 border-beige-300 shadow-sm"
@@ -113,7 +113,7 @@ export default function PracticesIndexPage() {
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-8 border-b pb-6 border-slate-200 dark:border-slate-800">
                   <div className="space-y-3 max-w-2xl">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-beige-200 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-beige-200 flex items-center justify-center shrink-0">
                         {practice.icon}
                       </div>
                       {practice.isFlagship && (
@@ -123,17 +123,17 @@ export default function PracticesIndexPage() {
                       )}
                     </div>
 
-                    <h2 className={`font-heading font-bold text-2xl sm:text-3xl ${practice.isFlagship ? "text-white" : "text-charcoal-900"}`}>
+                    <h2 className={`font-heading font-bold text-2xl sm:text-3xl break-words ${practice.isFlagship ? "text-white" : "text-charcoal-900"}`}>
                       {practice.title}
                     </h2>
 
-                    <p className={`text-sm leading-relaxed ${practice.isFlagship ? "text-slate-300" : "text-slate-600"}`}>
+                    <p className={`text-sm leading-relaxed break-words ${practice.isFlagship ? "text-slate-300" : "text-slate-600"}`}>
                       {practice.description}
                     </p>
                   </div>
 
-                  <Link href={`/practices/${practice.slug}`} className="shrink-0">
-                    <Button variant={practice.isFlagship ? "terracotta" : "primary"} size="md" rightIcon={<ArrowRight className="h-4 w-4" />}>
+                  <Link href={`/practices/${practice.slug}`} className="shrink-0 w-full sm:w-auto">
+                    <Button variant={practice.isFlagship ? "terracotta" : "primary"} size="md" className="w-full sm:w-auto" rightIcon={<ArrowRight className="h-4 w-4 shrink-0" />}>
                       Explore Sub-services
                     </Button>
                   </Link>
@@ -146,9 +146,9 @@ export default function PracticesIndexPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {practice.subtopics.map((item) => (
-                      <div key={item} className="flex items-start gap-2 text-xs font-medium">
+                      <div key={item} className="flex items-start gap-2 text-xs font-medium min-w-0">
                         <CheckCircle2 className={`h-4 w-4 shrink-0 mt-0.5 ${practice.isFlagship ? "text-terracotta-400" : "text-terracotta-500"}`} />
-                        <span className={practice.isFlagship ? "text-slate-300" : "text-slate-700"}>{item}</span>
+                        <span className={`break-words min-w-0 ${practice.isFlagship ? "text-slate-300" : "text-slate-700"}`}>{item}</span>
                       </div>
                     ))}
                   </div>

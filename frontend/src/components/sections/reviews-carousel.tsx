@@ -57,7 +57,7 @@ export function ReviewsCarouselSection() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12"
         >
           {testimonials.map((item) => (
             <motion.div key={item.id} variants={fadeInUp}>
