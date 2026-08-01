@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <g fill="none" stroke="#0070C0" stroke-width="22" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="10">
+    <!-- Outer geometric shape -->
+    <path d="M 130 35 L 35 130 L 165 260 L 245 180" />
+    <!-- Inner geometric shape -->
+    <path d="M 85 180 L 165 100 L 245 180 L 200 225" />
+  </g>
+</svg>
