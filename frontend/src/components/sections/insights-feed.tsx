@@ -78,7 +78,7 @@ export function InsightsFeedSection() {
             <motion.div key={item.slug} variants={fadeInUp}>
               <Card className="h-full flex flex-col justify-between p-7 bg-white border border-beige-300 shadow-sm hover:shadow-md transition-all">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap items-center  gap-2">
                     <Badge variant="terracotta" className="text-[10px] bg-terracotta-100 text-terracotta-700 border-terracotta-200">
                       {item.category}
                     </Badge>
