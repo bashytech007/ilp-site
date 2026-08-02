@@ -194,7 +194,7 @@ export default function InsightsPage() {
                 <div
                   key={guide.title}
                   className="bg-white p-6 rounded-xl border border-beige-300 shadow-sm space-y-3">
-                  <div className="flex items-center justify-between gap-3">
+                  <div className="flex flex-wrap items-center  gap-2">
                     <Badge variant="terracotta" className="text-[10px]">
                       Real Estate Law
                     </Badge>
