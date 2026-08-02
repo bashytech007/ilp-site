@@ -114,7 +114,7 @@ export function HeaderNav() {
         </nav>
 
         {/* Right Callout Phone Link */}
-        <div className="hidden sm:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <a
             href={`tel:${siteConfig.contact.phone[0].replace(/\s+/g, '')}`}
             className="flex items-center gap-2 text-xs font-semibold text-slate-200 hover:text-terracotta-400 transition-colors bg-charcoal-800/80 px-3.5 py-2 rounded-full border border-charcoal-700"
