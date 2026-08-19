@@ -41,7 +41,7 @@ export function HeroSection() {
               </span>
             </motion.h1>
             <motion.h2 variants={fadeInUp} className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-slate-900 leading-[1.2]">
-                Investment & Regulatory Compliance in Nigeria
+                Legal and Regulatory Compliance Firm
             </motion.h2>
 
             {/* Subheading Paragraph */}
@@ -63,16 +63,16 @@ export function HeroSection() {
                 </Button>
               </Link>
 
-              <Link href="/contact?type=lawyer">
+              {/* <Link href="/contact?type=lawyer">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto border-slate-300 cursor-pointer bg-white text-charcoal-900 hover:bg-linen-100" leftIcon={<PhoneCall className="h-4 w-4 text-terracotta-500" />}>
                   Speak to a Lawyer
                 </Button>
-              </Link>
+              </Link> */}
 
-              <Link href="/contact?type=advisory" className="inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-terracotta-500 transition-colors py-2 px-3">
+              {/* <Link href="/contact?type=advisory" className="inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-terracotta-500 transition-colors py-2 px-3">
                 <FileText className="h-4 w-4 text-terracotta-500" />
                 <span>Request Legal Advisory</span>
-              </Link>
+              </Link> */}
             </motion.div>
 
             {/* Location Bar */}

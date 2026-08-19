@@ -23,7 +23,6 @@ export function PracticeGrid() {
         "Mergers & Acquisitions (M&A) Support",
       ],
       href: "/practices/commercial-law",
-      isFlagship: false,
     },
     {
       id: "corporate-governance",
@@ -38,7 +37,6 @@ export function PracticeGrid() {
         "Internal Controls & Governance Audits",
       ],
       href: "/practices/corporate-governance",
-      isFlagship: false,
     },
     {
       id: "property-law",
@@ -53,13 +51,12 @@ export function PracticeGrid() {
         "Property Dispute Resolution & Litigation",
       ],
       href: "/practices/property-law",
-      isFlagship: false,
     },
     {
       id: "capital-markets",
       title: "4. Capital Market Legal Advisory",
       description: "Our flagship practice area guiding firms through becoming a licensed Capital Market Operator (CMO) in Nigeria.",
-      icon: <Landmark className="h-6 w-6 text-gold-400" />,
+      icon: <Landmark className="h-6 w-6 text-terracotta-500" />,
       subservices: [
         "SEC Operator License Selection & Eligibility",
         "Corporate Structuring & Share Capital Audit",
@@ -68,7 +65,6 @@ export function PracticeGrid() {
         "Regulatory Inspection & Mock Audits",
       ],
       href: "/practices/capital-market",
-      isFlagship: true,
     },
   ];
 
@@ -107,47 +103,31 @@ export function PracticeGrid() {
             <motion.div key={practice.id} variants={fadeInUp}>
               <Card
                 showTopAccent
-                className={`h-full flex flex-col justify-between p-8 ${
-                  practice.isFlagship
-                    ? "border-terracotta-500/50 bg-gradient-to-b from-charcoal-900 to-charcoal-950 text-white dark:border-terracotta-500/80"
-                    : "bg-white dark:bg-charcoal-900 border-slate-200 dark:border-slate-800 shadow-sm"
-                }`}
+                className="h-full flex flex-col justify-between p-8 bg-white dark:bg-charcoal-900 border-slate-200 dark:border-slate-800 shadow-sm"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-12 h-12 rounded-lg bg-terracotta-50 dark:bg-charcoal-800 flex items-center justify-center">
                       {practice.icon}
                     </div>
-                    {practice.isFlagship && (
-                      <Badge variant="gold" className="px-3 py-1">
-                        Flagship Practice
-                      </Badge>
-                    )}
                   </div>
 
-                  {/* Restored heading element for all four cards consistently */}
                   <CardHeader className="p-0 pb-3">
-                    <CardTitle className={`text-xl sm:text-2xl font-bold font-heading ${
-                      practice.isFlagship ? "text-white" : "text-charcoal-900 dark:text-white"
-                    }`}>
+                    <CardTitle className="text-xl sm:text-2xl font-bold font-heading text-charcoal-900 dark:text-white">
                       {practice.title}
                     </CardTitle>
                   </CardHeader>
 
                   <CardContent className="p-0 pt-1">
-                    <CardDescription className={`text-sm leading-relaxed mb-6 ${
-                      practice.isFlagship ? "text-slate-200" : "text-slate-700 dark:text-slate-300"
-                    }`}>
+                    <CardDescription className="text-sm leading-relaxed mb-6 text-slate-700 dark:text-slate-300">
                       {practice.description}
                     </CardDescription>
 
                     <div className="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/80">
                       {practice.subservices.map((sub) => (
                         <div key={sub} className="flex items-center gap-2.5 text-sm font-medium">
-                          <CheckCircle2 className={`h-4 w-4 shrink-0 ${
-                            practice.isFlagship ? "text-gold-400" : "text-terracotta-500"
-                          }`} />
-                          <span className={practice.isFlagship ? "text-slate-100" : "text-charcoal-800 dark:text-slate-200"}>
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-terracotta-500" />
+                          <span className="text-charcoal-800 dark:text-slate-200">
                             {sub}
                           </span>
                         </div>
@@ -158,9 +138,7 @@ export function PracticeGrid() {
 
                 <CardFooter className="p-0 pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
                   <Link href={practice.href} className="w-full">
-                    <span className={`inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:translate-x-1 ${
-                      practice.isFlagship ? "text-gold-400 hover:text-gold-300" : "text-terracotta-600 hover:text-terracotta-700 dark:text-terracotta-400"
-                    }`}>
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:translate-x-1 text-terracotta-600 hover:text-terracotta-700 dark:text-terracotta-400">
                       <span>Explore Practice Details</span>
                       <ArrowRight className="h-4 w-4" />
                     </span>

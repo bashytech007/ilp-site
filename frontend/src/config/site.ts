@@ -39,8 +39,8 @@ export const siteConfig = {
     { id: "start", label: "START", desc: "Business incorporation, licensing, and regulatory approvals" },
     { id: "structure", label: "STRUCTURE", desc: "Corporate governance, contracts, and legal frameworks" },
     { id: "scale", label: "SCALE", desc: "Cross-border expansion, investment transactions, and strategic advisory" },
-    { id: "regulate", label: "REGULATE", desc: "SEC licensing, capital market compliance, and ongoing governance support" },
-    { id: "protect", label: "PROTECT", desc: "Property transactions, dispute resolution, risk management, and legal compliance" },
+    { id: "regulate", label: "REGULATE", desc: "Approvals, licensing, compliance, ongoing board and corporate governance support" },
+    { id: "protect", label: "Business Restructuring", desc: "Property transactions, dispute resolution, risk management, and legal compliance" },
   ],
 
   mainNav: [
