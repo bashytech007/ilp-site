@@ -3,7 +3,7 @@ import { HeaderNav } from "@/components/layout/header-nav";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { PositioningBand } from "@/components/sections/positioning-band";
-import { WhyChooseUsSection } from "@/components/sections/why-choose-us";
+// import { WhyChooseUsSection } from "@/components/sections/why-choose-us";
 import { MeetTheFirmSection } from "@/components/sections/meet-the-firm";
 import { PracticeGrid } from "@/components/sections/practice-grid";
 import { Roadmap10StepSection } from "@/components/sections/roadmap-10-step";
@@ -43,7 +43,7 @@ export default function HomePage() {
           <PositioningBand />
 
           {/* 3. Icon-Circle Practice Area Cards */}
-          <WhyChooseUsSection />
+          {/* <WhyChooseUsSection /> */}
 
           {/* 4. Meet The Firm (Itunu Lawrence Headshot & Overview) */}
           <MeetTheFirmSection />

@@ -22,8 +22,7 @@ export function PositioningBand() {
             Supporting Your Business Throughout Every Stage of Growth
           </h2>
           <p className="text-sm text-slate-400">
-            From initial incorporation to capital market licensing and ongoing compliance, we partner with clients across the entire business lifecycle.
-          </p>
+From initial incorporation to regulatory matters and compliance, global business expansion or restructuring, we partner with clients across the entire business lifecycle.          </p>
         </div>
 
         {/* 5-Step Lifecycle Steps */}
