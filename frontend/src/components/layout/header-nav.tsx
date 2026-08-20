@@ -4,6 +4,8 @@ import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
+import { useCalendlyModal } from "@/components/ui/calendly-book-button";
+import { PopupModal } from "react-calendly";
 import { ChevronDown, Menu, X, PhoneCall, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/ui/logo";
@@ -12,6 +14,8 @@ export function HeaderNav() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = React.useState(false);
   const [isMobileOpen, setIsMobileOpen] = React.useState(false);
+
+  const consultModal = useCalendlyModal();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -172,13 +176,29 @@ export function HeaderNav() {
             FAQs
           </Link>
           <div className="pt-4">
-            <Link href="/contact" onClick={() => setIsMobileOpen(false)}>
-              <Button variant="primary" size="md" className="w-full">
-                Book a Consultation
-              </Button>
-            </Link>
+            <Button
+              variant="primary"
+              size="md"
+              className="w-full"
+              type="button"
+              onClick={() => {
+                setIsMobileOpen(false);
+                consultModal.openModal();
+              }}
+            >
+              Book a Consultation
+            </Button>
           </div>
         </div>
+      )}
+
+      {consultModal.url && consultModal.rootElement && (
+        <PopupModal
+          url={consultModal.url}
+          open={consultModal.isOpen}
+          rootElement={consultModal.rootElement}
+          onModalClose={consultModal.closeModal}
+        />
       )}
     </header>
   );

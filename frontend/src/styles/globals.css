@@ -63,3 +63,9 @@
   outline-offset: 2px;
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #C85228;
 }
+
+/* Calendly PopupModal: let the scheduling page use the viewport height on
+   desktop so its internal scrollbar does not cut into the modal's right edge. */
+.calendly-overlay .calendly-popup {
+  max-height: 90vh;
+}

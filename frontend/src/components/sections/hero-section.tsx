@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { WavyBackground } from "@/components/ui/wavy-background";
+import { CalendlyBookButton } from "@/components/ui/calendly-book-button";
 import { ArrowRight, PhoneCall, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
@@ -57,11 +56,13 @@ export function HeroSection() {
               variants={fadeInUp}
               className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
             >
-              <Link href="/contact?type=consultation">
-                <Button variant="terracotta" size="lg" className="w-full sm:w-auto font-bold shadow-md cursor-pointer" rightIcon={<ArrowRight className="h-4 w-4" />}>
-                  Book a Consultation
-                </Button>
-              </Link>
+              <CalendlyBookButton
+                variant="terracotta"
+                size="lg"
+                className="w-full sm:w-auto font-bold shadow-md cursor-pointer"
+                rightIcon={<ArrowRight className="h-4 w-4" />}
+                label="Book a Consultation"
+              />
 
               {/* <Link href="/contact?type=lawyer">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto border-slate-300 cursor-pointer bg-white text-charcoal-900 hover:bg-linen-100" leftIcon={<PhoneCall className="h-4 w-4 text-terracotta-500" />}>
