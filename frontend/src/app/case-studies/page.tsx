@@ -1,10 +1,9 @@
 import * as React from "react";
 import { HeaderNav } from "@/components/layout/header-nav";
 import { Footer } from "@/components/layout/footer";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CalendlyBookButton } from "@/components/ui/calendly-book-button";
 import { Award, Star, Upload, AlertCircle, ArrowRight, ShieldCheck } from "lucide-react";
-import Link from "next/link";
 import { generateMetadata } from "@/lib/seo";
 
 export const metadata = generateMetadata({
@@ -130,11 +129,12 @@ export default function CaseStudiesPage() {
 
           {/* CTA */}
           <div className="text-center">
-            <Link href="/contact">
-              <Button variant="terracotta" size="lg" rightIcon={<ArrowRight className="h-4 w-4" />}>
-                Book a Confidential Consultation
-              </Button>
-            </Link>
+            <CalendlyBookButton
+              variant="terracotta"
+              size="lg"
+              rightIcon={<ArrowRight className="h-4 w-4" />}
+              label="Book a Confidential Consultation"
+            />
           </div>
 
         </div>

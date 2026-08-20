@@ -19,8 +19,8 @@ export const siteConfig = {
 
   contact: {
     address: "Lagos Office, Victoria Island / Ikoyi Commercial District, Lagos, Nigeria",  
-    phone: ["+234 (0) 803 353 0777", "+234 (0) 801 111 2222"],
-    email: "contact@ilawrencepractice.com",
+    phone: ["08139697992"],
+    email: "info@ilpractice.com",
     hours: "Monday - Friday: 8:00 AM - 6:00 PM (WAT)",
   },
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { notFound } from "next/navigation";
 import { HeaderNav } from "@/components/layout/header-nav";
 import { Footer } from "@/components/layout/footer";
-import { Button } from "@/components/ui/button";
+import { CalendlyBookButton } from "@/components/ui/calendly-book-button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, User, ArrowLeft, AlertCircle, ShieldCheck } from "lucide-react";
 import Link from "next/link";
@@ -191,11 +191,11 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
             <h3 className="font-heading font-bold text-xl text-white">Need Specific Legal Advisory On This Topic?</h3>
             <p className="text-xs text-slate-300">Contact our legal team to schedule a confidential briefing on your operational requirements.</p>
             <div className="pt-2">
-              <Link href="/contact">
-                <Button variant="terracotta" size="md">
-                  Book a Consultation
-                </Button>
-              </Link>
+              <CalendlyBookButton
+                variant="terracotta"
+                size="md"
+                label="Book a Consultation"
+              />
             </div>
           </div>
 
