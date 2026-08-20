@@ -40,7 +40,7 @@ export const siteConfig = {
     { id: "structure", label: "STRUCTURE", desc: "Corporate governance, contracts, and legal frameworks" },
     { id: "scale", label: "SCALE", desc: "Cross-border expansion, investment transactions, and strategic advisory" },
     { id: "regulate", label: "REGULATE", desc: "Approvals, licensing, compliance, ongoing board and corporate governance support" },
-    { id: "protect", label: "Business Restructuring", desc: "Property transactions, dispute resolution, risk management, and legal compliance" },
+    { id: "protect", label: "Business Restructuring", desc: "Investor relations, capital funding, corporate/shareholder restructuring, including mergers and acquisitions" },
   ],
 
   mainNav: [
