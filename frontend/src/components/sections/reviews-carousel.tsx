@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, ArrowRight, Upload } from "lucide-react";
@@ -16,6 +17,7 @@ export function ReviewsCarouselSection() {
         "I. Lawrence Practice guided our entry into the Nigerian market end to end — incorporation, NIPC registration and regulatory approvals were handled with clarity and speed.",
       author: "Managing Director, Consumer Goods Group",
       rating: 5,
+      src: "/images/team/client_one.svg",
     },
     {
       id: "t-2",
@@ -23,6 +25,7 @@ export function ReviewsCarouselSection() {
         "Structuring and securing our SEC Capital Market Operator licence was seamless. ILP's team handled regulatory inspections and documentation with impressive precision.",
       author: "Chief Executive Officer, Investment Management Firm",
       rating: 5,
+      src: "/images/team/client_two.svg",
     },
     {
       id: "t-3",
@@ -30,6 +33,7 @@ export function ReviewsCarouselSection() {
         "Their property due diligence prevented a high-risk commercial real estate transaction. Thorough title verification and Governor's Consent perfection saved our investment.",
       author: "Head of Real Estate Assets, Private Equity Fund",
       rating: 5,
+      src: "/images/team/client_three.svg",
     },
   ];
 
@@ -76,9 +80,18 @@ export function ReviewsCarouselSection() {
                   </p>
                 </div>
 
-                {/* Terracotta Attribution */}
-                <div className="pt-6 mt-6 border-t border-slate-100 text-xs font-semibold text-terracotta-500">
-                  — {item.author}
+               {/* Attribution row with client headshot */}
+                <div className="flex items-center gap-3 pt-6 mt-6 border-t border-slate-100">
+                  <Image
+                    src={item.src}
+                    alt={`Portrait of ${item.author}`}
+                    width={44}
+                    height={44}
+                    className="h-13 w-13 rounded-full object-cover border border-beige-300 shrink-0"
+                  />
+                  <div className="text-xs font-semibold text-terracotta-500">
+                    — {item.author}
+                  </div>
                 </div>
               </Card>
             </motion.div>

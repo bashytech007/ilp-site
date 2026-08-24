@@ -84,7 +84,7 @@ export function MeetTheFirmSection({
 
             <motion.div variants={fadeInUp} className="pt-2">
               <Link href="/about">
-                <Button variant="terracotta" size="lg" rightIcon={<ArrowRight className="h-4 w-4" />}>
+                <Button variant="terracotta" size="lg" className="cursor-pointer" rightIcon={<ArrowRight className="h-4 w-4" />}>
                   Learn About Our Practice
                 </Button>
               </Link>
