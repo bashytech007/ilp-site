@@ -83,6 +83,18 @@ export function CalendlyBookButton({
           onModalClose={closeModal}
         />
       )}
+      {url && (
+        <div className="mt-2 text-xs text-slate-400">
+          <a
+            href={process.env.NEXT_PUBLIC_CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-terracotta-400 transition-colors"
+          >
+            Trouble booking? Open in a new tab
+          </a>
+        </div>
+      )}
     </>
   );
 }
