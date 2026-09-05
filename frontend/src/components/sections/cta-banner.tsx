@@ -259,7 +259,7 @@ export function CtaBannerSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-2 bg-charcoal-950 text-white hover:bg-charcoal-900 px-8 py-3.5 rounded-lg font-bold text-sm transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="inline-flex items-center gap-2 bg-charcoal-950 text-white hover:bg-charcoal-900 px-8 py-3.5 rounded-lg font-bold text-sm transition-all shadow-md disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
                     >
                       {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
                       {isSubmitting ? "Submitting..." : "Submit"}
