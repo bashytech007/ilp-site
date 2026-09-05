@@ -1,24 +1,81 @@
 "use client";
 
 import * as React from "react";
-import { Mail, Phone, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^[+]?[\d\s()-]{7,20}$/;
+
+const MAX_LENGTHS = {
+  firstName: 80,
+  lastName: 80,
+  company: 120,
+  email: 254,
+  phone: 30,
+  message: 3000,
+};
+
+const EMPTY_FORM = {
+  firstName: "",
+  lastName: "",
+  company: "",
+  email: "",
+  phone: "",
+  message: "",
+};
+
+function validateForm(data: typeof EMPTY_FORM): string | null {
+  if (!data.firstName.trim()) return "First name is required.";
+  if (!data.lastName.trim()) return "Last name is required.";
+  if (!data.email.trim() || !EMAIL_REGEX.test(data.email)) return "Please enter a valid email address.";
+  if (!data.phone.trim() || !PHONE_REGEX.test(data.phone)) return "Please enter a valid phone number.";
+  if (!data.message.trim()) return "Please include a short message.";
+  if (data.message.length > MAX_LENGTHS.message) return "Message is too long.";
+  return null;
+}
+
 export function CtaBannerSection() {
-  const [formData, setFormData] = React.useState({
-    firstName: "",
-    lastName: "",
-    company: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = React.useState(EMPTY_FORM);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+
+    if (isSubmitting) return; // prevent duplicate submissions
+
+    const validationError = validateForm(formData);
+    if (validationError) {
+      setErrorMessage(validationError);
+      return;
+    }
+
+    setErrorMessage(null);
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setErrorMessage(data?.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setIsSubmitted(true);
+      setFormData(EMPTY_FORM);
+    } catch {
+      setErrorMessage("We couldn't reach the server. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -101,22 +158,31 @@ export function CtaBannerSection() {
               {isSubmitted ? (
                 <div className="bg-white text-charcoal-900 p-8 rounded-xl space-y-3 text-center animate-in fade-in-50">
                   <CheckCircle2 className="h-12 w-12 text-emerald-600 mx-auto" />
-                  <h4 className="font-heading font-bold text-xl text-charcoal-900">Inquiry Submitted</h4>
+                  <h4 className="font-heading font-bold text-xl text-charcoal-900">Thank You</h4>
                   <p className="text-xs text-slate-600">
-                    Thank you for reaching out to I. Lawrence Practice. Our team will review your enquiry and respond promptly.
+                    Thank you. Your enquiry has been received. We'll get back to you shortly.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} noValidate className="space-y-4">
+                  {errorMessage && (
+                    <div className="flex items-start gap-2 bg-white/95 text-red-700 text-xs font-medium px-4 py-3 rounded-lg">
+                      <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+
                   <div>
                     <label className="sr-only">First Name</label>
                     <input
                       type="text"
                       required
+                      maxLength={MAX_LENGTHS.firstName}
                       placeholder="First Name"
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium disabled:opacity-60"
                     />
                   </div>
 
@@ -125,10 +191,12 @@ export function CtaBannerSection() {
                     <input
                       type="text"
                       required
+                      maxLength={MAX_LENGTHS.lastName}
                       placeholder="Last Name"
                       value={formData.lastName}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium disabled:opacity-60"
                     />
                   </div>
 
@@ -136,10 +204,12 @@ export function CtaBannerSection() {
                     <label className="sr-only">Company</label>
                     <input
                       type="text"
+                      maxLength={MAX_LENGTHS.company}
                       placeholder="Company"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium disabled:opacity-60"
                     />
                   </div>
 
@@ -148,10 +218,12 @@ export function CtaBannerSection() {
                     <input
                       type="email"
                       required
+                      maxLength={MAX_LENGTHS.email}
                       placeholder="Email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium disabled:opacity-60"
                     />
                   </div>
 
@@ -160,10 +232,12 @@ export function CtaBannerSection() {
                     <input
                       type="tel"
                       required
+                      maxLength={MAX_LENGTHS.phone}
                       placeholder="Phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium disabled:opacity-60"
                     />
                   </div>
 
@@ -172,19 +246,23 @@ export function CtaBannerSection() {
                     <textarea
                       rows={4}
                       required
+                      maxLength={MAX_LENGTHS.message}
                       placeholder="Message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium resize-none"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 text-sm text-charcoal-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal-900 placeholder:text-slate-500 font-medium resize-none disabled:opacity-60"
                     />
                   </div>
 
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="bg-charcoal-950 text-white hover:bg-charcoal-900 px-8 py-3.5 rounded-lg font-bold text-sm transition-all shadow-md"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center gap-2 bg-charcoal-950 text-white hover:bg-charcoal-900 px-8 py-3.5 rounded-lg font-bold text-sm transition-all shadow-md disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
                     >
-                      Submit
+                      {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
+                      {isSubmitting ? "Submitting..." : "Submit"}
                     </button>
                   </div>
                 </form>
