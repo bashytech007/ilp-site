@@ -80,9 +80,7 @@ export default function InsightsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {/* Header */}
           <div className="space-y-4 max-w-3xl">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              {" "}
-              <span className="h-0.5 w-8 bg-terracotta-500" />
+            <div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
                 RESOURCES & KNOWLEDGE CENTRE
               </span>

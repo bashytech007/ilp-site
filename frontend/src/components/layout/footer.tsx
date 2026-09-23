@@ -1,7 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, AlertCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Youtube, AlertCircle } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
@@ -81,6 +81,16 @@ export function Footer() {
               >
                 <Facebook className="h-4 w-4 text-terracotta-400" />
                 <span>Facebook / I. Lawrence Practice</span>
+              </a>
+
+              <a
+                href="https://youtube.com/@i.lawrencepractice?si=Yzcbzfp5DpnMhOPS"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-xs text-slate-300 hover:text-terracotta-400 transition-colors p-2 rounded bg-charcoal-800/60 border border-charcoal-700 w-fit"
+              >
+                <Youtube className="h-4 w-4 text-terracotta-400" />
+                <span>YouTube / I. Lawrence Practice</span>
               </a>
             </div>
 

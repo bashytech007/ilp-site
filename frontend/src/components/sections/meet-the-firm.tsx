@@ -61,8 +61,7 @@ export function MeetTheFirmSection({
             viewport={{ once: true }}
             className="lg:col-span-7 space-y-6"
           >
-            <motion.div variants={fadeInUp} className="flex items-center gap-2">
-              <span className="h-0.5 w-8 bg-terracotta-500" />
+            <motion.div variants={fadeInUp}>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
                 MEET THE FIRM
               </span>

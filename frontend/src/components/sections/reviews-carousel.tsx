@@ -43,8 +43,7 @@ export function ReviewsCarouselSection() {
         
         {/* Header */}
         <div className="space-y-3 mb-14">
-          <div className="flex items-center gap-2">
-            <span className="h-0.5 w-8 bg-terracotta-500" />
+          <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
               REVIEWS
             </span>

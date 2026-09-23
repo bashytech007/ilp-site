@@ -93,8 +93,7 @@ export function CtaBannerSection() {
           <div className="lg:col-span-6 space-y-6">
             
             {/* Eyebrow */}
-            <div className="flex items-center gap-2">
-              <span className="h-0.5 w-6 bg-terracotta-500" />
+            <div>
               <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-600">
                 BOOK A CONSULTATION
               </span>

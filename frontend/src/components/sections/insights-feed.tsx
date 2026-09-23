@@ -43,8 +43,7 @@ export function InsightsFeedSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="flex items-center gap-2">
-              <span className="h-0.5 w-8 bg-terracotta-500" />
+            <div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
                 RESOURCES / KNOWLEDGE CENTRE
               </span>

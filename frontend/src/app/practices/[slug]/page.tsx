@@ -268,8 +268,7 @@ export default async function PracticeDetailPage({ params }: { params: Promise<{
           
           {/* Header */}
           <div className="space-y-4 max-w-3xl">
-            <div className="flex items-center gap-2">
-              <span className="h-0.5 w-6 sm:w-8 bg-terracotta-500 shrink-0" />
+            <div>
               <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-terracotta-500 break-words">
                 {practice.category}
               </span>

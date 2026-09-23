@@ -22,8 +22,7 @@ export function HeroSection() {
             className="lg:col-span-7 space-y-4"
           >
             {/* Eyebrow */}
-            <motion.div variants={fadeInUp} className="flex items-center gap-2">
-              <span className="h-0.5 w-6 sm:w-8 bg-terracotta-500 shrink-0" />
+            <motion.div variants={fadeInUp}>
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-terracotta-500">
                 Corporate & Commercial Law Firm • Lagos, Nigeria
               </span>
@@ -82,51 +81,32 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Layered Circular Image Cluster */}
+          {/* Right Column: Lady Justice Statue Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 relative flex justify-center items-center py-6 lg:py-0"
+            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+            className="lg:col-span-5 relative flex justify-center items-center py-6 lg:py-0 px-4 sm:px-6 lg:px-0"
           >
             {/* Background Soft Blush Aura */}
-            <div className="absolute -inset-4 bg-terracotta-100/50 rounded-full blur-3xl -z-10" />
+            <div className="absolute -inset-6 bg-terracotta-100/30 rounded-[2rem] blur-3xl -z-10" />
 
-            <div className="relative w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[400px] md:h-[400px] flex items-center justify-center">
-              
-              {/* Main Center Circle (Boardroom Team) */}
-              <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 sm:border-8 border-[#FAF4F0] shadow-2xl bg-white z-10">
-                <Image
-                  src="/images/hero/hero-boardroom.jpg"
-                  alt="I. Lawrence Practice Boardroom & Executive Legal Advisory"
-                  fill
-                  sizes="(max-width: 768px) 280px, 320px"
-                  className="object-cover object-center"
-                  priority
-                />
-              </div>
-
-              {/* Overlapping Bottom-Left Circle (Portrait - Man Reading Document) */}
-              <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-6 w-32 h-32 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-[#FAF4F0] shadow-xl bg-white z-20">
-                <Image
-                  src="/images/hero/hero-man-reading.jpg"
-                  alt="Senior Commercial Attorney Reviewing Contracts"
-                  fill
-                  sizes="(max-width: 768px) 130px, 180px"
-                  className="object-cover object-top"
-                />
-              </div>
-
-              {/* Overlapping Top-Right Circle (Portrait - Woman Legal Counsel) */}
-              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-28 h-28 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-[#FAF4F0] shadow-xl bg-white z-20">
-                <Image
-                  src="/images/hero/hero-woman-lawyer.jpg"
-                  alt="Corporate Governance & Regulatory Lead Counsel"
-                  fill
-                  sizes="(max-width: 768px) 110px, 160px"
-                  className="object-cover object-top"
-                />
-              </div>
+            <div
+              className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[440px] lg:max-w-[480px] aspect-square rounded-3xl overflow-hidden ring-1 ring-beige-300/60"
+              style={{
+                boxShadow:
+                  "0 8px 30px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), 0 0 0 1px rgba(250,244,240,0.6)",
+              }}
+            >
+              <Image
+                src="/images/hero/lady-justice-statue.jpg"
+                alt="Lady Justice statue representing the legal practice of I. Lawrence Practice"
+                fill
+                sizes="(max-width: 640px) 300px, (max-width: 768px) 380px, (max-width: 1024px) 420px, 460px"
+                className="object-cover"
+                style={{ objectPosition: "35% 20%" }}
+                priority
+              />
             </div>
           </motion.div>
 
