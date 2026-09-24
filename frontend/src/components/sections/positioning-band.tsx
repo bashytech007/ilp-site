@@ -14,7 +14,13 @@ export function PositioningBand() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+        <motion.div
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto space-y-3 mb-10"
+        >
           <span className="text-xs font-bold tracking-[0.2em] text-gold-400 uppercase">
             End-to-End Commercial Partner
           </span>
@@ -23,7 +29,7 @@ export function PositioningBand() {
           </h2>
           <p className="text-sm text-slate-400">
 From initial incorporation to regulatory matters and compliance, global business expansion or restructuring, we partner with clients across the entire business lifecycle.          </p>
-        </div>
+        </motion.div>
 
         {/* 5-Step Lifecycle Steps */}
         <motion.div
@@ -41,7 +47,7 @@ From initial incorporation to regulatory matters and compliance, global business
                 variants={fadeInUp}
                 type="button"
                 onClick={() => setActiveStep(idx)}
-                className={`text-left p-5 rounded-lg border transition-all duration-300 relative ${
+                className={`text-left p-5 rounded-lg border transition-all duration-300 transition-transform relative ${
                   isActive
                     ? "bg-obsidian-950 border-primary-500 shadow-lg scale-[1.02]"
                     : "bg-obsidian-900/70 border-slate-800 hover:border-slate-700 hover:bg-obsidian-900"

@@ -4,6 +4,8 @@ import * as React from "react";
 import Link from "next/link";
 import { Accordion } from "@/components/ui/accordion";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/lib/motion";
 
 export function FaqAccordionSection() {
   const faqs = [
@@ -65,7 +67,13 @@ export function FaqAccordionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Static Eyebrow & Serif Heading (Doesn't scroll with accordion) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
+          <motion.div
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="lg:col-span-5 lg:sticky lg:top-28 space-y-4"
+          >
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
                 FAQS
@@ -89,12 +97,18 @@ export function FaqAccordionSection() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Expandable Accordion Rows with Terracotta Circle '+' Toggle */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-xl border border-beige-300 shadow-sm">
+          <motion.div
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-xl border border-beige-300 shadow-sm"
+          >
             <Accordion items={faqs} />
-          </div>
+          </motion.div>
 
         </div>
 

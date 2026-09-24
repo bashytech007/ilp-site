@@ -2,6 +2,8 @@
 
 import * as React from "react";
 import { Mail, Phone, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion";
 import { siteConfig } from "@/config/site";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -79,7 +81,7 @@ export function CtaBannerSection() {
   };
 
   return (
-    <section className="py-20 lg:py-24 bg-linen-50 relative overflow-hidden border-t border-beige-300">
+    <section className="py-24 bg-linen-50 relative overflow-hidden border-t border-beige-300">
       {/* Ambient scattered accent dots */}
       <div className="absolute top-12 left-8 w-2 h-2 rounded-full bg-terracotta-400/40 pointer-events-none" />
       <div className="absolute top-1/3 left-1/4 w-2.5 h-2.5 rounded-full bg-terracotta-400/30 pointer-events-none" />
@@ -90,24 +92,30 @@ export function CtaBannerSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Heading, Contact Details & Embedded Lagos Location Map */}
-          <div className="lg:col-span-6 space-y-6">
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="lg:col-span-6 space-y-6"
+          >
             
             {/* Eyebrow */}
-            <div>
+            <motion.div variants={fadeInUp}>
               <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-terracotta-600">
                 BOOK A CONSULTATION
               </span>
-            </div>
+            </motion.div>
 
             {/* Serif Heading */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal-900 leading-tight">
+            <motion.h2 variants={fadeInUp} className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal-900 leading-tight">
               Speak With a Lawyer at I. Lawrence Practice
-            </h2>
+            </motion.h2>
 
             {/* Supporting Text */}
-            <p className="text-sm text-slate-600 leading-relaxed max-w-lg">
+            <motion.p variants={fadeInUp} className="text-sm text-slate-600 leading-relaxed max-w-lg">
               Tell us about your business and the outcome you need. Our team responds to every enquiry with practical next steps.
-            </p>
+            </motion.p>
 
             {/* Direct Contact Details */}
             <div className="space-y-3 pt-2 text-sm font-medium text-charcoal-900">
@@ -144,10 +152,16 @@ export function CtaBannerSection() {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
           {/* Right Column: Terracotta Card ("Let's Talk") */}
-          <div className="lg:col-span-6">
+          <motion.div
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="lg:col-span-6"
+          >
             <div className="bg-terracotta-500 rounded-2xl p-8 sm:p-10 text-white shadow-2xl space-y-6">
               
               <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white">
@@ -268,7 +282,7 @@ export function CtaBannerSection() {
               )}
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

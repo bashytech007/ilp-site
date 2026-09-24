@@ -42,7 +42,13 @@ export function ReviewsCarouselSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="space-y-3 mb-14">
+        <motion.div
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="space-y-3 mb-14"
+        >
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
               REVIEWS
@@ -52,7 +58,7 @@ export function ReviewsCarouselSection() {
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-charcoal-900">
             What Our Clients Say
           </h2>
-        </div>
+        </motion.div>
 
         {/* Testimonials Cards Grid */}
         <motion.div

@@ -54,7 +54,7 @@ export function WavyBackground({
       {showDots && (
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           {/* Dot 1 - Top Left Accent */}
-          <div className="absolute top-12 left-8 w-3 h-3 rounded-full bg-terracotta-400/40 animate-pulse" />
+          <div className="absolute top-12 left-8 w-3 h-3 rounded-full bg-terracotta-400/40" />
           
           {/* Dot 2 - Near Title Accent */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-terracotta-500/30" />

@@ -73,7 +73,13 @@ export function PracticeGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <motion.div
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+        >
           <div className="space-y-3 max-w-2xl">
             <Badge variant="primary">Core Practice Areas</Badge>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-charcoal-900 dark:text-white">
@@ -89,7 +95,7 @@ export function PracticeGrid() {
               View All Practice Details <ArrowRight className="h-4 w-4" />
             </span>
           </Link>
-        </div>
+        </motion.div>
 
         {/* 4 Cards Grid */}
         <motion.div
@@ -103,7 +109,7 @@ export function PracticeGrid() {
             <motion.div key={practice.id} variants={fadeInUp}>
               <Card
                 showTopAccent
-                className="h-full flex flex-col justify-between p-8 bg-white dark:bg-charcoal-900 border-slate-200 dark:border-slate-800 shadow-sm"
+                className="h-full flex flex-col justify-between p-8 bg-white dark:bg-charcoal-900 border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">

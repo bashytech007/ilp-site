@@ -27,7 +27,13 @@ export function Roadmap10StepSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <motion.div
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto space-y-4 mb-16"
+        >
           <Badge variant="primary">Flagship Practice Roadmap</Badge>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-charcoal-900 dark:text-white">
             10-Step Roadmap to Becoming a Licensed Capital Market Operator in Nigeria
@@ -35,7 +41,7 @@ export function Roadmap10StepSection() {
           <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
             We provide step-by-step legal advisory to guide investment companies, fund managers, and financial institutions through the complete SEC licensing lifecycle.
           </p>
-        </div>
+        </motion.div>
 
         {/* 10-Step Grid Layout */}
         <motion.div
@@ -80,7 +86,7 @@ export function Roadmap10StepSection() {
             <Button
               variant="terracotta"
               size="lg"
-              className="w-full sm:w-auto px-6 sm:px-8 text-xs sm:text-base font-bold h-auto py-3.5 leading-snug whitespace-normal text-center cursor-pointer inline-flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 sm:px-8 text-sm sm:text-base font-bold h-auto py-3.5 leading-snug whitespace-normal text-center cursor-pointer inline-flex items-center justify-center gap-2"
               rightIcon={<ArrowRight className="h-4 w-4 shrink-0" />}
             >
               Explore Full Capital Market Licensing Guide

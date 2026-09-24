@@ -3,6 +3,8 @@
 import * as React from "react";
 import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
+import { EASE_ILP } from "@/lib/motion";
 
 interface AccordionItemProps {
   title: string;
@@ -33,7 +35,7 @@ export function AccordionItem({
         {/* Accent-Colored Circle Toggle (+) */}
         <div
           className={cn(
-            "w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 shadow-sm",
+            "w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm",
             isOpen
               ? "bg-charcoal-900 text-white rotate-180"
               : "bg-terracotta-500 text-white hover:bg-terracotta-600"
@@ -42,14 +44,22 @@ export function AccordionItem({
           {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
         </div>
       </button>
-      {isOpen && (
-        <div
-          id={id ? `accordion-content-${id}` : undefined}
-          className="pb-3 pt-2 text-sm leading-relaxed text-slate-600 animate-in fade-in-50 duration-200 pr-12"
-        >
-          {children}
-        </div>
-      )}
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            id={id ? `accordion-content-${id}` : undefined}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1, transition: { height: { duration: 0.3, ease: EASE_ILP }, opacity: { duration: 0.2, delay: 0.05 } } }}
+            exit={{ height: 0, opacity: 0, transition: { height: { duration: 0.25, ease: EASE_ILP }, opacity: { duration: 0.15 } } }}
+            className="overflow-hidden"
+          >
+            <div className="pb-3 pt-2 text-sm leading-relaxed text-slate-600 pr-12">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -81,3 +91,4 @@ export function Accordion({ items }: AccordionProps) {
     </div>
   );
 }
+

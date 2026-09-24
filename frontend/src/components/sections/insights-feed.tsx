@@ -41,7 +41,13 @@ export function InsightsFeedSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <motion.div
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6"
+        >
           <div className="space-y-3 max-w-2xl">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta-500">
@@ -63,7 +69,7 @@ export function InsightsFeedSection() {
               <ArrowRight className="h-4 w-4" />
             </span>
           </Link>
-        </div>
+        </motion.div>
 
         {/* 3 Scaffold Cards Grid */}
         <motion.div

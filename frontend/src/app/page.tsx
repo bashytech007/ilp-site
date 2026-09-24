@@ -11,6 +11,7 @@ import { ReviewsCarouselSection } from "@/components/sections/reviews-carousel";
 import { InsightsFeedSection } from "@/components/sections/insights-feed";
 import { FaqAccordionSection } from "@/components/sections/faq-accordion";
 import { CtaBannerSection } from "@/components/sections/cta-banner";
+import { IntroVideoModal } from "@/components/ui/intro-video-modal";
 import { generateMetadata, generateLegalServiceSchema } from "@/lib/seo";
 
 export const metadata = generateMetadata({
@@ -24,6 +25,9 @@ export default function HomePage() {
 
   return (
     <>
+      {/* Intro Video Popup — shown once per new visitor */}
+      <IntroVideoModal />
+
       {/* Schema.org LegalService JSON-LD Structured Data */}
       <script
         type="application/ld+json"
